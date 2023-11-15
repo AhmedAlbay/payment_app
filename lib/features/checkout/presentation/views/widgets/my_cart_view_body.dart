@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/features/checkout/presentation/views/widgets/order_info_item.dart';
+import 'package:payment_app/features/checkout/presentation/views/widgets/total_price.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -26,9 +27,12 @@ class MyCartViewBody extends StatelessWidget {
             height: 5,
           ),
           const OrderInfoItem(title: "Shipping", value: r'8$'),
-          const SizedBox(
-            height: 17,
+          const Divider(
+            height: 34,
+            color: Color(0xffC7C7C7),
+            thickness: 2,
           ),
+          const TotalPrice(title: "Total", value: r"50.97$"),
         ],
       ),
     );
