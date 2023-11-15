@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_app/core/widgets/custom_button.dart';
 import 'package:payment_app/features/checkout/presentation/views/widgets/order_info_item.dart';
 import 'package:payment_app/features/checkout/presentation/views/widgets/total_price.dart';
 
@@ -33,6 +34,9 @@ class MyCartViewBody extends StatelessWidget {
             thickness: 2,
           ),
           const TotalPrice(title: "Total", value: r"50.97$"),
+          const SizedBox(height: 16,),
+          const CustomButton(),
+          const SizedBox(height: 12,),
         ],
       ),
     );
