@@ -16,7 +16,7 @@ class MyCartView extends StatelessWidget {
             fontWeight: FontWeight.w500,
             height: 0,
           ),
-        ), ,),
+        ),),
     );
   }
 }
