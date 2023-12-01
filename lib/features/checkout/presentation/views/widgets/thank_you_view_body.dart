@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:payment_app/features/checkout/presentation/views/widgets/custom_check_icon_card.dart';
+import 'package:payment_app/features/checkout/presentation/views/widgets/custom_dash_line.dart';
+import 'package:payment_app/features/checkout/presentation/views/widgets/custom_thank_you_card.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
@@ -8,31 +11,12 @@ class ThankYouViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Stack(clipBehavior: Clip.none, children: [
-        Container(
-          decoration: ShapeDecoration(
-            color: const Color(0xFFD9D9D9),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-        ),
+        const CustomThankYouCard(),
         Positioned(
           bottom: MediaQuery.sizeOf(context).height * .2 + 20,
           right: 16 + 20,
           left: 16 + 20,
-          child: Row(
-            children: List.generate(
-                25,
-                (index) => Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                        child: Container(
-                          color: const Color(0xFFB7B7B7),
-                          height: 2,
-                        ),
-                      ),
-                    )),
-          ),
+          child: const CustomDashLine(),
         ),
         Positioned(
             left: -20,
@@ -50,20 +34,12 @@ class ThankYouViewBody extends StatelessWidget {
           top: -50,
           left: 0,
           right: 0,
-          child: CircleAvatar(
-            radius: 50,
-            backgroundColor: Color(0xFFD9D9D9),
-            child: CircleAvatar(
-              radius: 40,
-              backgroundColor: Color(0xff34A853),
-              child: Icon(
-                Icons.check,
-                size: 50,
-              ),
-            ),
-          ),
+          child: CustomCheckIconCard(),
         )
       ]),
     );
   }
 }
+
+
+
