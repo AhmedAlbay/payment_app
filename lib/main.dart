@@ -13,9 +13,7 @@ class CheckoutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyCartView(
-
-      ),
+      home: MyCartView(),
     );
   }
 }

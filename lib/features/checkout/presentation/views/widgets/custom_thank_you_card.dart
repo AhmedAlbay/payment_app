@@ -79,7 +79,8 @@ class CustomThankYouCard extends StatelessWidget {
                   height: 58,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                      side: const BorderSide(width: 1.50, color: Color(0xFF34A853)),
+                      side: const BorderSide(
+                          width: 1.50, color: Color(0xFF34A853)),
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),

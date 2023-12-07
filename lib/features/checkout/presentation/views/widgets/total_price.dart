@@ -21,6 +21,5 @@ class TotalPrice extends StatelessWidget {
         ),
       ],
     );
-   
   }
 }
