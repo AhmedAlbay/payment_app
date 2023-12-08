@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_app/core/widgets/custom_button.dart';
+import 'package:payment_app/features/checkout/data/repos/checkout_repo_impl.dart';
+import 'package:payment_app/features/checkout/presentation/manger/cubit/payment_cubit.dart';
 import 'package:payment_app/features/checkout/presentation/views/widgets/order_info_item.dart';
-import 'package:payment_app/features/checkout/presentation/views/widgets/payment_methods_list_view.dart';
+import 'package:payment_app/features/checkout/presentation/views/widgets/payment_method_bottom_sheet.dart';
 import 'package:payment_app/features/checkout/presentation/views/widgets/total_price.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -52,7 +55,10 @@ class MyCartViewBody extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),
                   builder: (context) {
-                    return const PaymentMethodBottomSheet();
+                    return  BlocProvider(
+                      create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                      child: const PaymentMethodBottomSheet(),
+                    );
                   });
             },
             text: 'Complete Payment',
@@ -60,30 +66,6 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class PaymentMethodBottomSheet extends StatelessWidget {
-  const PaymentMethodBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            height: 16,
-          ),
-          PaymentMethodsListView(),
-          SizedBox(
-            height: 32,
-          ),
-          CustomButton(text: "continue")
         ],
       ),
     );
