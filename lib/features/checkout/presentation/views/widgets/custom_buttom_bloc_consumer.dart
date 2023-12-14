@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_app/core/widgets/custom_button.dart';
+import 'package:payment_app/features/checkout/data/model/payment_intent_input_model.dart';
 import 'package:payment_app/features/checkout/presentation/manger/cubit/payment_cubit.dart';
 import 'package:payment_app/features/checkout/presentation/views/thank_you_view.dart';
 
@@ -21,6 +22,7 @@ class CustomButtomBlocConsumer extends StatelessWidget {
         }
 
         if (state is PaymentFailure) {
+          Navigator.of(context).pop();
           SnackBar snackBar = SnackBar(
             content: Text(state.errMessage),
           );
@@ -29,6 +31,12 @@ class CustomButtomBlocConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         return CustomButton(
+            onTap: () {
+              PaymentIntentInputModel paymentIntentInputModel =
+                  PaymentIntentInputModel(amount: '100', currency: 'USD');
+              BlocProvider.of<PaymentCubit>(context).makePayment(
+                  paymentIntentInputModel: paymentIntentInputModel);
+            },
             isLoading: state is PaymentLoading ? true : false,
             text: "continue");
       },
