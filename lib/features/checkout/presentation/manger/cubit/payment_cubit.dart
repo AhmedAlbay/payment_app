@@ -20,9 +20,10 @@ class PaymentCubit extends Cubit<PaymentState> {
     data.fold((l) => emit(PaymentFailure(l.errMessage)),
         (r) => emit(PaymentSuccess()));
   }
+
   @override
   void onChange(Change<PaymentState> change) {
-  log(change.toString());
+    log(change.toString());
     super.onChange(change);
   }
 }

@@ -10,11 +10,11 @@ class CheckoutRepoImpl extends CheckoutRepo {
   Future<Either<Failure, void>> makePayment(
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     try {
-    await   stripeServices.makePayment(
+      await stripeServices.makePayment(
           paymentIntentInputModel: paymentIntentInputModel);
       return right(null);
     } catch (e) {
-       return left(ServerFailure(errMessage: e.toString()));
+      return left(ServerFailure(errMessage: e.toString()));
     }
   }
 }

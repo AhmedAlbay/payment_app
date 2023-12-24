@@ -21,11 +21,11 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
           child: PaymentMethodsListView(),
         ),
         const SliverToBoxAdapter(
-          // child: CustomCreditCard(
-          //   autovalidateMode: autovalidateMode,
-          //   formKey: formKey,
-          // ),
-        ),
+            // child: CustomCreditCard(
+            //   autovalidateMode: autovalidateMode,
+            //   formKey: formKey,
+            // ),
+            ),
         SliverFillRemaining(
           hasScrollBody: false,
           child: Align(

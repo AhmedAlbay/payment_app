@@ -43,19 +43,13 @@ class MyCartViewBody extends StatelessWidget {
           ),
           CustomButton(
             onTap: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) {
-              //       return const PaymentDetailsView();
-              //     },
-              //   ),
-              // );
+        
               showModalBottomSheet(
                   context: context,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),
                   builder: (context) {
-                    return  BlocProvider(
+                    return BlocProvider(
                       create: (context) => PaymentCubit(CheckoutRepoImpl()),
                       child: const PaymentMethodBottomSheet(),
                     );
